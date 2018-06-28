@@ -1,4 +1,32 @@
-{
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: GoogleDynamicDNS.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: GoogleDynamicDNS.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>{
 /**
  * The namespace the contains all the Google Domain APIs and classes.
  * @namespace DEDA-Google-Domains
@@ -16,7 +44,7 @@ const https = require('https');
  * 
  * @class
  * @memberof DEDA-Google-Domains
- * @author Charbel Choueiri <charbel.choueiri@gmail.com>
+ * @author Charbel Choueiri &lt;charbel.choueiri@gmail.com>
  */
 class DynamicDNS
 {
@@ -52,11 +80,10 @@ class DynamicDNS
      * @property {string} password - The dynamic DNS password.
      * @property {string} hostname - The dynamic DNS hostname
      * @property {string} [publicIpUrl=https://domains.google.com/checkip] - The HTTP/HTTPS URL used to check the current public IP of the device.
-     * @property {string} [updateIpUrl=https://domains.google.com/nic/update?hostname=%HOSTNAME%&myip=%IPADDRESS%] - The HTTPS URL of the Google DNS API update.
+     * @property {string} [updateIpUrl=https://domains.google.com/nic/update?hostname=%HOSTNAME%&amp;myip=%IPADDRESS%] - The HTTPS URL of the Google DNS API update.
      * @property {string} [userAgent=Nodejs google-ddns] - The HTTP header User-Agent to send when updating the IP address. This is required by the Google Dynamic DNS API.
-     * @property {boolean} [failOnUnresolvedHostName = false] - Indicates whether to fail or keep going during synchronizing if the current host name was not resolved. 
-     *  This typically happens if the domain was created and has not yet been applied or propagated. See TTL (Time-to-Live) for more information.
-     *  Every though this can fail the update can sill be successful.
+     * @property {boolean} [failOnUnresolvedHostName = false] - Indicates whether to file fail or keep going when synchronizing the IP if the current host name was not resolved. 
+     *  This typically happens if the domain was created and has not yet propagated. Every though this can fail the update can sill successfully update the IP address of the domain.
      * @memberof DEDA-Google-Domains.DynamicDNS
      */
 
@@ -71,7 +98,7 @@ class DynamicDNS
             password: '',
             hostname: '',
             publicIpUrl: 'https://domains.google.com/checkip',
-            updateIpUrl: 'https://domains.google.com/nic/update?hostname=%HOSTNAME%&myip=%IPADDRESS%',
+            updateIpUrl: 'https://domains.google.com/nic/update?hostname=%HOSTNAME%&amp;myip=%IPADDRESS%',
             userAgent: 'Nodejs google-ddns',
 
             failOnUnresolvedHostName: false
@@ -116,7 +143,6 @@ class DynamicDNS
             let currentIP = '0.0.0.0';
 
             try {
-                // Try to get the current IP address of the domain. This can fail if the domain does not exist or has not propagated or been applied yet.
                 currentIP = await this.getCurrentIP();
             } catch (error) {
                 // If we are to fail if host was not found then throw error.
@@ -269,7 +295,7 @@ class DynamicDNS
      */
     parseResult(body, expectedIP)
     {
-        // Split the result, this could of the following format '<string> <string>'
+        // Split the result, this could of the following format '&lt;string> &lt;string>'
         body = body.split(' ');
         const token = body[0], ip = body[1];
 
@@ -280,7 +306,7 @@ class DynamicDNS
         if (!result) return {response: token, status: 'error', description: `Unknown or not handled response type: ${token}`};
 
         // If it was a success then check the IP addresses to make sure an update was successful.
-        else if (result.status === 'success' && ip !== expectedIP) return {response: token, status: 'error', description: `Response was successful but expected IP ${expectedId} is not equal to changed IP ${ip}`};
+        else if (result.status === 'success' &amp;&amp; ip !== expectedIP) return {response: token, status: 'error', description: `Response was successful but expected IP ${expectedId} is not equal to changed IP ${ip}`};
 
         // If the body contains an IP address then add it to the response and return it.
         return Object.assign({ip}, result);
@@ -300,4 +326,26 @@ class DynamicDNS
 // Export the class
 DynamicDNS.namespace = 'DEDA.Google.Domains.DynamicDNS';
 module.exports = DynamicDNS;
-};
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DEDA-Google-Domains.DynamicDNS.html">DynamicDNS</a></li></ul><h3>Namespaces</h3><ul><li><a href="DEDA-Google-Domains.html">DEDA-Google-Domains</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jun 28 2018 11:39:47 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

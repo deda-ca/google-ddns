@@ -1,7 +1,7 @@
 {
   "name": "google-ddns",
-  "version": "1.0.0",
-  "description": "Google Dynamic DNS update tool",
+  "version": "1.0.1",
+  "description": "Google Dynamic DNS client update tool. Updates the DNS IP address to the current public IP.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,9 @@
     "ddns",
     "dynamic",
     "dns",
-    "domains"
+    "domain",
+    "domains",
+    "client"
   ],
   "author": "Charbel Choueiri <charbel.choueiri@gmail.com>",
   "license": "MIT",
