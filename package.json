@@ -1,0 +1,26 @@
+{
+  "name": "google-ddns",
+  "version": "1.0.0",
+  "description": "Google Dynamic DNS update tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DEDAjs/google-ddns.git"
+  },
+  "keywords": [
+    "google",
+    "ddns",
+    "dynamic",
+    "dns",
+    "domains"
+  ],
+  "author": "Charbel Choueiri <charbel.choueiri@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DEDAjs/google-ddns/issues"
+  },
+  "homepage": "https://github.com/DEDAjs/google-ddns#readme"
+}
