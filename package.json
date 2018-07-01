@@ -1,11 +1,12 @@
 {
   "name": "google-ddns",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Dynamic DNS client update tool. Updates the DNS IP address to the current public IP.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": "./main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DEDAjs/google-ddns.git"
@@ -17,7 +18,12 @@
     "dns",
     "domain",
     "domains",
-    "client"
+    "client",
+    "dynamic dns",
+    "google dynamic dns",
+    "google dynamic dns client",
+    "google ddns",
+    "google ddns client"
   ],
   "author": "Charbel Choueiri <charbel.choueiri@gmail.com>",
   "license": "MIT",

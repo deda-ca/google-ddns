@@ -9,7 +9,7 @@
 
     "source": 
 	{
-		"include": ["./lib/"],
+		"include": ["./options.js", "./lib/"],
 		"exclude": [],
         "includePattern": ".+\\.js(doc)?$",
         "excludePattern": "(^|\\/|\\\\)_"
