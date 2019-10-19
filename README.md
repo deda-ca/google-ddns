@@ -52,7 +52,7 @@ The above fields are required to be within the options.js or options.json file. 
  * **hostIPAddressCacheExpires** [*3600*] - If useHostIPAddressCache is set to true, this timer is used to force a host IP address checked/resolution every once in a while rather than never. The time is in seconds and defaults to every hour.
  * **debug** [*false*] - Set the debug mode on or off. The debug mode will write debug and status information to the console.
 
-The next options pretains to running the script as a service:
+The next options pertain to running the script as a service:
 
  * **runService** [*true*] - Defines whether to run the application as a service as a one time call to update the google domain IP address.
  * **checkInterval** [*60*] - Used by the service. The amount of time in seconds to wait before checking if the public IP has changed.
